@@ -1,5 +1,4 @@
 import { Stack } from "expo-router";
-import { useColorScheme } from "react-native";
 import {
     MD3LightTheme,
     MD3DarkTheme,
@@ -25,13 +24,15 @@ const { LightTheme, DarkTheme } = adaptNavigationTheme({
     reactNavigationDark: NavigationDarkTheme,
 });
 
-const CombinedLightTheme = merge(LightTheme, customLightTheme);
 const CombinedDarkTheme = merge(DarkTheme, customDarkTheme);
+const CombinedLightTheme = merge(LightTheme, customLightTheme);
+
+import { useTheme } from '../hooks/useTheme';
 
 export default function RootLayout() {
-    const colorScheme = useColorScheme();
+    const { colorScheme } = useTheme();
 
-    const paperTheme = colorScheme === 'light' ? CombinedLightTheme : CombinedDarkTheme;
+    const paperTheme = colorScheme === 'dark' ? CombinedDarkTheme : CombinedLightTheme;
 
     return (
         <PaperProvider theme={ paperTheme }>
@@ -40,7 +41,7 @@ export default function RootLayout() {
                     <Stack.Screen
                         name="(tabs)"
                         options={{
-                            headerShown: false,
+                            headerShown: false
                         }}
                     />
                 </Stack>
