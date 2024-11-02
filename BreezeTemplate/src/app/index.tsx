@@ -6,7 +6,7 @@ const Index = () => {
     return (
         <View style={styles.container}>
             <ImageBackground
-                source={ require("../../assets/images/cafe_background.png") }
+                source={ require("../../assets/images/cafe_background_blur.png") }
                 style={styles.image}
             >
                 <Card
