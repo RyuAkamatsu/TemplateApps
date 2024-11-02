@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import { Avatar, Button, Card, Text } from "react-native-paper";
 
-const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
+const LeftContent = (props: any) => <Avatar.Icon {...props} icon="folder" />;
 
 export default function Index() {
     return (

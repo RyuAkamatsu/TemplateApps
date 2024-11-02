@@ -1,4 +1,4 @@
-import { Stack } from "expo-router";
+import { Slot, Stack } from "expo-router";
 import {
     MD3LightTheme,
     MD3DarkTheme,
@@ -28,6 +28,7 @@ const CombinedDarkTheme = merge(DarkTheme, customDarkTheme);
 const CombinedLightTheme = merge(LightTheme, customLightTheme);
 
 import { useTheme } from '../hooks/useTheme';
+import { SessionProvider } from '@/src/providers/session';
 
 export default function RootLayout() {
     const { colorScheme } = useTheme();
@@ -36,16 +37,11 @@ export default function RootLayout() {
 
     return (
         <PaperProvider theme={ paperTheme }>
-            <ThemeProvider value={ paperTheme }>
-                <Stack>
-                    <Stack.Screen
-                        name="(tabs)"
-                        options={{
-                            headerShown: false
-                        }}
-                    />
-                </Stack>
-            </ThemeProvider>
+            <SessionProvider>
+                <ThemeProvider value={ paperTheme }>
+                    <Slot />
+                </ThemeProvider>
+            </SessionProvider>
         </PaperProvider>
     );
 }

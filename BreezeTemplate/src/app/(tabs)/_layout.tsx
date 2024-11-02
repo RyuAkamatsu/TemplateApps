@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { Feather } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function TabLayout() {
     return (
@@ -9,7 +9,25 @@ export default function TabLayout() {
                 options={{
                     title: "Home",
                     tabBarIcon: ({ color }) => (
-                        <Feather name="home" size={24} color={color} />
+                        <MaterialCommunityIcons name="home" size={24} color={color} />
+                    ),
+                }}
+            />
+            <Tabs.Screen
+                name="basket"
+                options={{
+                    title: "Basket",
+                    tabBarIcon: ({ color }) => (
+                        <MaterialCommunityIcons name="basket" size={24} color={color} />
+                    ),
+                }}
+            />
+            <Tabs.Screen
+                name="account"
+                options={{
+                    title: "Account",
+                    tabBarIcon: ({ color }) => (
+                        <MaterialCommunityIcons name="account" size={24} color={color} />
                     ),
                 }}
             />
@@ -18,7 +36,7 @@ export default function TabLayout() {
                 options={{
                     title: "Setting",
                     tabBarIcon: ({ color }) => (
-                        <Feather name="settings" size={24} color={color} />
+                        <MaterialCommunityIcons name="cog" size={24} color={color} />
                     ),
                 }}
             />
